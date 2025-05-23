@@ -25,6 +25,10 @@ app.use('/staff',StaffRoutes);
 app.use('/custdirt',CustomerdRoutes);
 app.use('/product',ProductRoutes);
 app.use('/entry',NewEntry);
+app.get('/', (req, res) => {
+  res.send('✅ Your site is live and working!');
+});
+
 app.listen(PORT,()=>{
     console.log(" 🚀  Server started on port 5000");
 })
