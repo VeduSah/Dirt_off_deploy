@@ -10,9 +10,28 @@ const StaffRoutes = require('./src/routes/StaffRoutes');
 const CustomerdRoutes = require('./src/routes/CustomerdRoutes');
 const ProductRoutes = require('./src/routes/ProductRoutes');
 const NewEntry = require('./src/routes/NewentryRoutes');
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://dirt-off-deploy.vercel.app",
+  "https://dirt-off-deploy.onrender.com",
+];
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    optionsSuccessStatus: 204,
+  })
+);
 app.use(express.json());
 dotenv.config();
 connectDB();
