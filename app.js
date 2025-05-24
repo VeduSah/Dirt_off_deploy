@@ -12,9 +12,11 @@ const ProductRoutes = require('./src/routes/ProductRoutes');
 const NewEntry = require('./src/routes/NewentryRoutes');
 const allowedOrigins = [
   "http://localhost:5173",
+ "https://dirt-deploy.vercel.app",
+
   "http://127.0.0.1:5173",
-  "https://dirt-off-deploy.vercel.app",
-  "https://dirt-off-deploy.onrender.com",
+  "https://dirt-off-dep.vercel.app",
+  "https://dirt-off-de.onrender.com",
 ];
 
 const app = express();
